@@ -1,0 +1,24 @@
+name: Semantic PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  optimize-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write # Required to update the PR title and body
+      contents: read       # Required to checkout the code
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # Required to get the full git diff
+
+      - name: Run Semantic PR Action
+        uses: ./ # Uses the action defined in the root of the repo
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          gemini-api-key: ${{ secrets.GEMINI_API_KEY }}

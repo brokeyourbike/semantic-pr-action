@@ -1,0 +1,15 @@
+name: 'Semantic PR Action'
+description: 'Analyzes pull request diffs using Gemini to generate semantic titles and accurate descriptions.'
+author: 'Ivan Stasiuk'
+
+inputs:
+  github-token:
+    description: 'The standard GITHUB_TOKEN to fetch diffs and update the PR.'
+    required: true
+  gemini-api-key:
+    description: 'Your Google Gemini API Key stored in repository secrets.'
+    required: true
+
+runs:
+  using: 'node24'
+  main: 'dist/index.js'
