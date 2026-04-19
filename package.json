@@ -1,0 +1,42 @@
+{
+  "name": "semantic-pr-action",
+  "version": "0.0.1",
+  "description": "Analyzes pull request diffs using Gemini to generate semantic titles and accurate descriptions.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/main.ts -o dist",
+    "test": "vitest run",
+    "fmt:fix": "prettier --write '**/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brokeyourbike/semantic-pr-action.git"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "gemini",
+    "pr",
+    "ai"
+  ],
+  "author": "Ivan Stasiuk <ivan@stasi.uk>",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/brokeyourbike/semantic-pr-action/issues"
+  },
+  "homepage": "https://github.com/brokeyourbike/semantic-pr-action#readme",
+  "dependencies": {
+    "@actions/core": "^2",
+    "@actions/github": "^8",
+    "@google/generative-ai": "^0.24.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.2",
+    "@vercel/ncc": "^0.38.4",
+    "@vitest/coverage-v8": "^4.1.4",
+    "prettier": "3.8.3",
+    "typescript": "^5.5.4",
+    "vitest": "^4.1.4"
+  }
+}

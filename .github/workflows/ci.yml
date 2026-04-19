@@ -1,0 +1,39 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Tests & Coverage
+        run: npm run test
+
+      - name: Build Action
+        run: npm run build
+
+      - name: Verify compiled action is committed
+        run: |
+          # If this fails, it means someone changed src/ but forgot to run 'npm run build' and commit 'dist/'
+          if [ -n "$(git status --porcelain dist/)" ]; then
+            echo "Error: Uncommitted changes in the dist/ directory. Please run 'npm run build' and commit the result."
+            git diff
+            exit 1
+          fi
