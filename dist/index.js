@@ -33169,7 +33169,7 @@ function run() {
             });
             // 2. Call Gemini
             const genAI = new generative_ai_1.GoogleGenerativeAI(apiKey);
-            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+            const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
             // Update the prompt to evaluate the current title
             const prompt = `
       Analyze this git diff and return a JSON object with a "title" and a "description".
