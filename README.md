@@ -1,5 +1,7 @@
 # 🤖 Semantic PR Action
 
+[![codecov](https://codecov.io/gh/brokeyourbike/semantic-pr-action/graph/badge.svg?token=yQdh76sUDg)](https://codecov.io/gh/brokeyourbike/semantic-pr-action)
+
 **Semantic PR Action** uses Google's Gemini AI to automatically review your Pull Request code changes and ensure your PR titles and descriptions are highly accurate and formatted correctly.
 
 Tired of PRs named "fixed stuff" with an empty description? This action reads the actual git diff and acts as an automated, intelligent PR architect.
@@ -35,7 +37,7 @@ jobs:
         with:
           fetch-depth: 0 
       - name: Run Semantic PR Action
-        uses: brokeyourbike/semantic-pr-action@v1.0.0
+        uses: brokeyourbike/semantic-pr-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
