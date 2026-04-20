@@ -10,7 +10,11 @@ jobs:
   draft:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
+      - uses: actions/checkout@v6
       - uses: googleapis/release-please-action@v4
         id: release
         with:
