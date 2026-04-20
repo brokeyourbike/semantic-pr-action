@@ -35,7 +35,7 @@ jobs:
         with:
           fetch-depth: 0 
       - name: Run Semantic PR Action
-        uses: brokeyourbike/semantic-pr-action@v0
+        uses: brokeyourbike/semantic-pr-action@v1.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
