@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/brokeyourbike/semantic-pr-action/compare/v1.0.2...v1.0.3) (2026-04-20)
+
+
+### Bug Fixes
+
+* tag ([be7c8e9](https://github.com/brokeyourbike/semantic-pr-action/commit/be7c8e994bd236f68466d07a1d17e1c2ed8eb554))
+
 ## [1.0.2](https://github.com/brokeyourbike/semantic-pr-action/compare/v1.0.1...v1.0.2) (2026-04-20)
 
 
