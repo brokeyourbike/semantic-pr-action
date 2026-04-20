@@ -13,6 +13,14 @@ jobs:
 
     steps:
       - uses: googleapis/release-please-action@v4
+        id: release
         with:
           release-type: node
           bump-minor-pre-major: true
+      - name: update major tag
+        if: ${{ steps.release.outputs.release_created == 'true' }}
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+          git tag -fa v${{ steps.release.outputs.major }} -m "update v${{ steps.release.outputs.major }} tag"
+          git push origin v${{ steps.release.outputs.major }} --force
