@@ -7,6 +7,7 @@ async function run() {
   try {
     const token = core.getInput("github-token", { required: true });
     const apiKey = core.getInput("gemini-api-key", { required: true });
+    const modelName = core.getInput("model-name");
     const octokit = github.getOctokit(token);
 
     // Grab the PR number and the current title directly from the context payload
@@ -23,7 +24,7 @@ async function run() {
 
     // 2. Call Gemini
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
+    const model = genAI.getGenerativeModel({ model: modelName });
 
     // Update the prompt to evaluate the current title
     const prompt = `
