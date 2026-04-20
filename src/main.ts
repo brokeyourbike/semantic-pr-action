@@ -36,6 +36,7 @@ async function run() {
       1. Must follow Conventional Commits format (e.g., feat:, fix:, chore:, etc.).
       2. If the CURRENT PR TITLE is already formatted correctly AND accurately describes the diff, return it EXACTLY as-is.
       3. If it is inaccurate or improperly formatted, generate a new, better title.
+      4. MUST be 30 characters or less in total length. Keep it extremely concise.
       
       RULES FOR DESCRIPTION:
       Provide a concise summary of the 'What' and 'Why' of these changes.
