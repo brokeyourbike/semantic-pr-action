@@ -9,6 +9,10 @@ inputs:
   gemini-api-key:
     description: 'Your Google Gemini API Key stored in repository secrets.'
     required: true
+  model-name:
+    description: 'The Gemini model to use for analysis.'
+    required: false
+    default: 'gemini-3-flash-preview'
 
 runs:
   using: 'node24'

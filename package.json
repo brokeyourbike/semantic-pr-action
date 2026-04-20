@@ -20,7 +20,7 @@
     "ai"
   ],
   "author": "Ivan Stasiuk <ivan@stasi.uk>",
-  "license": "MPL-2.0",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/brokeyourbike/semantic-pr-action/issues"
   },

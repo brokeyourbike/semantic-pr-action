@@ -33156,6 +33156,7 @@ function run() {
         try {
             const token = core.getInput("github-token", { required: true });
             const apiKey = core.getInput("gemini-api-key", { required: true });
+            const modelName = core.getInput("model-name");
             const octokit = github.getOctokit(token);
             // Grab the PR number and the current title directly from the context payload
             const { owner, repo, number } = github.context.issue;
@@ -33169,7 +33170,7 @@ function run() {
             });
             // 2. Call Gemini
             const genAI = new generative_ai_1.GoogleGenerativeAI(apiKey);
-            const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
+            const model = genAI.getGenerativeModel({ model: modelName });
             // Update the prompt to evaluate the current title
             const prompt = `
       Analyze this git diff and return a JSON object with a "title" and a "description".
