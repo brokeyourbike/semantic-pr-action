@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/brokeyourbike/semantic-pr-action/compare/v1.0.0...v1.0.1) (2026-04-20)
+
+
+### Bug Fixes
+
+* refactor and add codecov ([#6](https://github.com/brokeyourbike/semantic-pr-action/issues/6)) ([dc00d72](https://github.com/brokeyourbike/semantic-pr-action/commit/dc00d72f64fa0260c97f35626e60ecd551e85ab9))
+
 ## 1.0.0 (2026-04-20)
 
 
