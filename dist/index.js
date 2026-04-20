@@ -33146,6 +33146,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.run = run;
 const core = __importStar(__nccwpck_require__(7484));
 const github = __importStar(__nccwpck_require__(3228));
 const generative_ai_1 = __nccwpck_require__(7656);
@@ -33161,7 +33162,7 @@ function run() {
             // Grab the PR number and the current title directly from the context payload
             const { owner, repo, number } = github.context.issue;
             const currentTitle = ((_a = github.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.title) || "";
-            // 1. Get the Diff (Requires a specific mediaType, so it returns raw text, not a JSON object)
+            // 1. Get the Diff (Requires a specific mediaType)
             const { data: diff } = yield octokit.rest.pulls.get({
                 owner,
                 repo,
@@ -33171,7 +33172,6 @@ function run() {
             // 2. Call Gemini
             const genAI = new generative_ai_1.GoogleGenerativeAI(apiKey);
             const model = genAI.getGenerativeModel({ model: modelName });
-            // Update the prompt to evaluate the current title
             const prompt = `
       Analyze this git diff and return a JSON object with a "title" and a "description".
       
@@ -33214,7 +33214,10 @@ function run() {
         }
     });
 }
-run();
+// Only execute run() automatically if we are NOT running in Vitest
+if (process.env.VITEST !== "true") {
+    run();
+}
 
 
 /***/ }),
