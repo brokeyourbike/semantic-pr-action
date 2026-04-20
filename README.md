@@ -1,5 +1,6 @@
 # 🤖 Semantic PR Action
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/brokeyourbike/semantic-pr-action)
 [![codecov](https://codecov.io/gh/brokeyourbike/semantic-pr-action/graph/badge.svg?token=yQdh76sUDg)](https://codecov.io/gh/brokeyourbike/semantic-pr-action)
 
 **Semantic PR Action** uses Google's Gemini AI to automatically review your Pull Request code changes and ensure your PR titles and descriptions are highly accurate and formatted correctly.
