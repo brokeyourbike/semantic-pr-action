@@ -1,4 +1,4 @@
-name: Semantic PR
+name: semantic
 
 on:
   pull_request:
@@ -7,6 +7,7 @@ on:
 jobs:
   optimize-pr:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     permissions:
       pull-requests: write # Required to update the PR title and body
       contents: read       # Required to checkout the code
