@@ -10,7 +10,8 @@
     "strict": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["node"]
   },
   "include": ["src"],
   "exclude": ["__test__", "lib", "dist", "node_modules"]

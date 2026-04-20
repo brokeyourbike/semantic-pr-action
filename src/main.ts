@@ -3,7 +3,7 @@ import * as github from "@actions/github";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { AIOutputSchema } from "./types";
 
-async function run() {
+export async function run(): Promise<void> {
   try {
     const token = core.getInput("github-token", { required: true });
     const apiKey = core.getInput("gemini-api-key", { required: true });
@@ -14,7 +14,7 @@ async function run() {
     const { owner, repo, number } = github.context.issue;
     const currentTitle = github.context.payload.pull_request?.title || "";
 
-    // 1. Get the Diff (Requires a specific mediaType, so it returns raw text, not a JSON object)
+    // 1. Get the Diff (Requires a specific mediaType)
     const { data: diff } = await octokit.rest.pulls.get({
       owner,
       repo,
@@ -26,7 +26,6 @@ async function run() {
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ model: modelName });
 
-    // Update the prompt to evaluate the current title
     const prompt = `
       Analyze this git diff and return a JSON object with a "title" and a "description".
       
@@ -74,7 +73,6 @@ async function run() {
       owner,
       repo,
       pull_number: number,
-      // Only send the title in the payload if it actually changed
       ...(titleChanged && { title: validated.title }),
       body: validated.description,
     });
@@ -85,4 +83,7 @@ async function run() {
   }
 }
 
-run();
+// Only execute run() automatically if we are NOT running in Vitest
+if (process.env.VITEST !== "true") {
+  run();
+}
