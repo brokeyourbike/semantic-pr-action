@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/brokeyourbike/semantic-pr-action/compare/v1.0.1...v1.0.2) (2026-04-20)
+
+
+### Bug Fixes
+
+* add vitest suite ([#8](https://github.com/brokeyourbike/semantic-pr-action/issues/8)) ([5040dcd](https://github.com/brokeyourbike/semantic-pr-action/commit/5040dcdf9bc78f415a3a6a8ad79365bc6ebff32d))
+* vitest ([5040dcd](https://github.com/brokeyourbike/semantic-pr-action/commit/5040dcdf9bc78f415a3a6a8ad79365bc6ebff32d))
+
 ## [1.0.1](https://github.com/brokeyourbike/semantic-pr-action/compare/v1.0.0...v1.0.1) (2026-04-20)
 
 
