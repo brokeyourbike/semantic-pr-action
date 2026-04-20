@@ -33181,6 +33181,7 @@ function run() {
       1. Must follow Conventional Commits format (e.g., feat:, fix:, chore:, etc.).
       2. If the CURRENT PR TITLE is already formatted correctly AND accurately describes the diff, return it EXACTLY as-is.
       3. If it is inaccurate or improperly formatted, generate a new, better title.
+      4. MUST be 30 characters or less in total length. Keep it extremely concise.
       
       RULES FOR DESCRIPTION:
       Provide a concise summary of the 'What' and 'Why' of these changes.
@@ -33229,6 +33230,7 @@ const zod_1 = __nccwpck_require__(924);
 exports.AIOutputSchema = zod_1.z.object({
     title: zod_1.z
         .string()
+        .max(30, "Title must be 30 characters or less")
         .regex(/^(feat|fix|chore|docs|style|refactor|perf|test|build|ci|revert)(\(.+\))?: .+/i),
     description: zod_1.z.string().min(10),
 });
