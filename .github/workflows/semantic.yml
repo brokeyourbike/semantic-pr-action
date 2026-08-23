@@ -6,11 +6,12 @@ on:
 
 jobs:
   optimize-pr:
+    if: github.actor != 'dependabot[bot]' && github.actor != github-actions[bot]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
       pull-requests: write # Required to update the PR title and body
-      contents: read       # Required to checkout the code
+      contents: read # Required to checkout the code
 
     steps:
       - name: Checkout Code
