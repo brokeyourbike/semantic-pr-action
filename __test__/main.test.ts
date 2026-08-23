@@ -23,7 +23,7 @@ vi.mock("@actions/github", () => ({
 }));
 
 // 4. Mock Gemini (Returns nested objects to mimic class instantiation)
-vi.mock('@google/generative-ai', () => {
+vi.mock("@google/generative-ai", () => {
   return {
     GoogleGenerativeAI: class {
       getGenerativeModel = vi.fn(() => ({
@@ -38,8 +38,14 @@ describe("main.ts", () => {
     vi.clearAllMocks();
 
     // Reset GitHub context state safely between tests
-    github.context.issue = { owner: "test-owner", repo: "test-repo", number: 42 } as any;
-    github.context.payload = { pull_request: { title: "old unstructured title" } } as any;
+    github.context.issue = {
+      owner: "test-owner",
+      repo: "test-repo",
+      number: 42,
+    } as any;
+    github.context.payload = {
+      pull_request: { title: "old unstructured title" },
+    } as any;
 
     // Default Inputs
     vi.mocked(core.getInput).mockImplementation((name) => {
@@ -54,7 +60,8 @@ describe("main.ts", () => {
     mockPullsUpdate.mockResolvedValue({});
     mockGenerateContent.mockResolvedValue({
       response: {
-        text: () => '```json\n{"title": "feat: updated code", "description": "This is a detailed description of the changes."}\n```',
+        text: () =>
+          '```json\n{"title": "feat: updated code", "description": "This is a detailed description of the changes."}\n```',
       },
     });
   });
@@ -64,8 +71,10 @@ describe("main.ts", () => {
     await run();
 
     expect(core.setFailed).not.toHaveBeenCalled();
-    expect(core.getInput).toHaveBeenCalledWith("github-token", { required: true });
-    
+    expect(core.getInput).toHaveBeenCalledWith("github-token", {
+      required: true,
+    });
+
     expect(mockPullsGet).toHaveBeenCalledWith({
       owner: "test-owner",
       repo: "test-repo",
@@ -100,7 +109,7 @@ describe("main.ts", () => {
 
     // Verify title was NOT sent
     expect(mockPullsUpdate).not.toHaveBeenCalledWith(
-      expect.objectContaining({ title: expect.anything() })
+      expect.objectContaining({ title: expect.anything() }),
     );
   });
 
