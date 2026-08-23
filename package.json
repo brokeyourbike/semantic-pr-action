@@ -1,6 +1,6 @@
 {
   "name": "semantic-pr-action",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Analyzes pull request diffs using Gemini to generate semantic titles and accurate descriptions.",
   "main": "dist/index.js",
   "scripts": {
