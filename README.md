@@ -12,7 +12,7 @@ Tired of PRs named "fixed stuff" with an empty description? This action reads th
 - If a contributor already wrote a perfect, Semantic PR title (e.g., `feat(api): add login endpoint`), the AI recognizes it and leaves it alone.
 - Generates a concise "What and Why" summary of the code changes directly in the PR body.
 - Enforces the [Conventional Commits](https://www.conventionalcommits.org/) specification for titles (feat, fix, chore, docs, etc.).
-- Powered by Google's `gemini-3-flash-preview` model for high-speed, cost-effective analysis.
+- Powered by Google's `gemini-3.8-flash` model for high-speed, cost-effective analysis.
 
 ## Usage
 
@@ -50,7 +50,7 @@ jobs:
 | --- | --- | --- |
 | `github-token` | **Yes** | The standard GitHub token used to fetch the PR diff and apply updates. Use `${{ secrets.GITHUB_TOKEN }}`. |
 | `gemini-api-key` | **Yes** | Your Google Gemini API Key. Store this in your repository's Secrets. |
-| `model-name` | No | The specific Gemini model to use. Defaults to `gemini-3-flash-preview`. |
+| `model-name` | No | The specific Gemini model to use. Defaults to `gemini-3.8-flash`. |
 
 ## Authors
 - [Ivan Stasiuk](https://github.com/brokeyourbike) | [Twitter](https://twitter.com/brokeyourbike) | [LinkedIn](https://www.linkedin.com/in/brokeyourbike) | [stasi.uk](https://stasi.uk)
