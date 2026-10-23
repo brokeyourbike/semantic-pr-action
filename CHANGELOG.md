@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/brokeyourbike/semantic-pr-action/compare/v1.2.0...v1.2.1) (2026-10-23)
+
+
+### Bug Fixes
+
+* use 3.8 flash ([26979d4](https://github.com/brokeyourbike/semantic-pr-action/commit/26979d4e43cddeffc6c77f2e7d3161f70a893200))
+
 ## [1.2.0](https://github.com/brokeyourbike/semantic-pr-action/compare/v1.1.0...v1.2.0) (2026-10-22)
 
 
